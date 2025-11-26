@@ -2,11 +2,11 @@
 layout: home
 ---
 
-# Welcome to My Blog
+# 欢迎来到我的博客
 
-This is my personal blog powered by Jekyll and GitHub Pages.
+这是我的个人博客，使用 Jekyll 和 GitHub Pages 搭建。
 
-## Recent Posts
+## 最新文章
 
-Check out my latest posts below!
+查看下面的最新文章吧！
 
