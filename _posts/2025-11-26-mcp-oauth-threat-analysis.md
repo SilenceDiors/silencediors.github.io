@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MCP 鉴权漏洞分析"
+title: "MCP(modelcontextprotocol)授权深入分析及可能产生的鉴权风险"
 date: 2025-11-26 12:00:00 +0800
 categories: security
 ---
