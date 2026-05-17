@@ -1,26 +1,39 @@
-title: SilenceDiors 的博客
-description: 个人博客，用来记录与分享学习过程。
-author: SilenceDiors
+title: "陈栋梁 (Silen Chen) — 网络安全研究"
+tagline: "陈栋梁 / Silen Chen / SilenceDiors · 应用安全研究 · Apple Security Acknowledgements"
+description: >-
+  陈栋梁(Silen Chen / SilenceDiors)的个人博客,记录网络安全方向的研究与思考,
+  关注应用安全、AI 安全、Web3 安全。2026 年 2 月获 Apple Web Server Security
+  Acknowledgements 官方致谢。
+
+author:
+  name: "Silen Chen (陈栋梁)"
+  email: ""
+
 url: "https://silencediors.github.io"
 baseurl: ""
 
-# Jekyll 主题
+lang: "zh-CN"
+locale: "zh_CN"
+
 theme: minima
 
-# 插件
 plugins:
   - jekyll-feed
   - jekyll-sitemap
+  - jekyll-seo-tag
 
-# 社交链接（可选）
-# twitter_username: your_twitter
-# github_username: SilenceDiors
+github_username: SilenceDiors
 
-# 构建设置
+social:
+  name: "Silen Chen"
+  links:
+    - https://github.com/SilenceDiors
+    - https://support.apple.com/en-us/102774
+
 markdown: kramdown
 highlighter: rouge
+permalink: /:year/:month/:day/:title/
 
-# 排除文件
 exclude:
   - Gemfile
   - Gemfile.lock
@@ -31,4 +44,5 @@ exclude:
   - vendor/ruby/
   - .gitignore
   - README.md
-
+  - deploy.sh
+  - setup.sh
