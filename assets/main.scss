@@ -5,23 +5,21 @@
 @charset "utf-8";
 
 // ========== 配色 ==========
-$bg:           #f5f1e8;        // 温暖米色(明显非白)
-$bg-card:      #fdfcf8;        // 卡片底色,略浅于 body
-$bg-soft:      #efe9d8;        // 更深的暖色,用于 footer
-$border:       #e0d9c8;        // 偏暖灰
+$bg:           #f5f1e8;
+$bg-card:      #fdfcf8;
+$bg-soft:      #efe9d8;
+$border:       #e0d9c8;
 $border-soft:  rgba(224, 217, 200, .6);
 $text:         #2a2a2a;
 $text-soft:    #6b6258;
 $text-muted:   #9c9286;
 $brand:        #1a1a1a;
 $accent:       #2563eb;
-$accent-soft:  #eef2ff;
 $code-bg:      rgba(0,0,0,.04);
 
-// 顶部柔光颜色
-$glow-1:       rgba(255, 220, 180, .55);  // 暖橙
-$glow-2:       rgba(190, 210, 240, .45);  // 蓝灰
-$glow-3:       rgba(225, 235, 200, .35);  // 浅绿
+$glow-1:       rgba(255, 220, 180, .55);
+$glow-2:       rgba(190, 210, 240, .45);
+$glow-3:       rgba(225, 235, 200, .35);
 
 // ========== 字体 ==========
 $font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
@@ -46,8 +44,6 @@ body {
   position: relative;
   min-height: 100vh;
 }
-
-// 全页固定柔光,滚动也能看到
 body::before {
   content: "";
   position: fixed;
@@ -72,54 +68,22 @@ a:hover {
 }
 
 code, pre { font-family: $font-mono; font-size: .92em; }
-code {
-  padding: 1px 6px;
-  background: $code-bg;
-  border-radius: 4px;
-  color: #444;
-}
-pre {
-  padding: 14px 16px;
-  background: $code-bg;
-  border-radius: 8px;
-  overflow-x: auto;
-}
+code { padding: 1px 6px; background: $code-bg; border-radius: 4px; color: #444; }
+pre { padding: 14px 16px; background: $code-bg; border-radius: 8px; overflow-x: auto; }
 pre code { padding: 0; background: transparent; }
 
-hr {
-  border: 0;
-  border-top: 1px solid $border;
-  margin: 2rem 0;
-}
+hr { border: 0; border-top: 1px solid $border; margin: 2rem 0; }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 1rem 0 1.5rem;
-}
-table th, table td {
-  text-align: left;
-  padding: .55rem .8rem;
-  border-bottom: 1px solid $border;
-  font-size: .95em;
-}
+table { border-collapse: collapse; width: 100%; margin: 1rem 0 1.5rem; }
+table th, table td { text-align: left; padding: .55rem .8rem; border-bottom: 1px solid $border; font-size: .95em; }
 table th { font-weight: 600; color: $brand; background: rgba(0,0,0,.02); }
 
-blockquote {
-  margin: 1.2rem 0;
-  padding: .25rem 0 .25rem 1rem;
-  color: $text-soft;
-  border-left: 3px solid $border;
-}
+blockquote { margin: 1.2rem 0; padding: .25rem 0 .25rem 1rem; color: $text-soft; border-left: 3px solid $border; }
 
 // ========== 布局 ==========
-.wrapper {
-  max-width: 720px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
+.wrapper { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
-// ========== Header ==========
+// ========== Header (无站标,仅右侧导航) ==========
 .site-header {
   border-top: 0;
   border-bottom: 1px solid $border-soft;
@@ -134,29 +98,23 @@ blockquote {
 .site-header .wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding-top: 14px;
   padding-bottom: 14px;
 }
-.site-title, .site-title:visited {
-  font-size: .98rem;
-  font-weight: 600;
-  color: $brand;
-  letter-spacing: .005em;
+.site-nav {
+  float: none;
   line-height: 1;
-  max-width: 60%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  background: transparent;
+  border: 0;
+  display: flex;
+  gap: 24px;
 }
-.site-title:hover { text-decoration: none; opacity: .7; }
-
-.site-nav { float: none; line-height: 1; background: transparent; border: 0; }
 .site-nav .page-link {
   color: $text-soft;
-  margin-left: 22px;
   font-size: .92rem;
   font-weight: 500;
+  margin: 0;
 }
 .site-nav .page-link:hover { color: $brand; text-decoration: none; }
 .site-nav .nav-trigger,
@@ -185,7 +143,6 @@ blockquote {
   color: $text-soft;
   margin-left: 10px;
   font-size: 1.35rem;
-  letter-spacing: 0;
 }
 .hero .tagline {
   margin: 0;
@@ -217,11 +174,7 @@ blockquote {
   border-bottom: 1px solid rgba(37, 99, 235, .35);
   padding-bottom: 1px;
 }
-.prose a:hover {
-  color: $accent;
-  border-bottom-color: $accent;
-  text-decoration: none;
-}
+.prose a:hover { color: $accent; border-bottom-color: $accent; text-decoration: none; }
 .prose h3 {
   font-size: 1.05rem;
   font-weight: 600;
@@ -245,9 +198,7 @@ blockquote {
 .findings { margin-top: 1.5rem; }
 
 // ========== Posts ==========
-.post-list-section {
-  margin-top: 3.5rem;
-}
+.post-list-section { margin-top: 3.5rem; }
 .post-list-section > h2 {
   font-size: 1.05rem;
   font-weight: 600;
@@ -261,11 +212,7 @@ blockquote {
   margin-right: .6em;
   font-weight: 400;
 }
-.post-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
+.post-list { list-style: none; margin: 0; padding: 0; }
 .post-list li {
   padding: 12px 0;
   border-bottom: 1px solid $border-soft;
@@ -280,11 +227,7 @@ blockquote {
   font-family: $font-mono;
   font-size: .82rem;
 }
-.post-list .post-link {
-  color: $text;
-  font-weight: 500;
-  border: 0;
-}
+.post-list .post-link { color: $text; font-weight: 500; border: 0; }
 .post-list .post-link:hover { color: $accent; text-decoration: none; }
 
 // ========== Page (about) ==========
@@ -296,7 +239,7 @@ blockquote {
   letter-spacing: -.01em;
 }
 
-// ========== Post (single article) ==========
+// ========== Post ==========
 .post-header { margin: 64px 0 2rem; }
 .post-title {
   font-size: 1.7rem;
@@ -308,13 +251,7 @@ blockquote {
 }
 .post-meta { color: $text-muted; font-size: .88rem; font-family: $font-mono; }
 .post-content { line-height: 1.85; font-size: 1rem; }
-.post-content h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  margin-top: 2.25rem;
-  margin-bottom: .75rem;
-  color: $brand;
-}
+.post-content h2 { font-size: 1.2rem; font-weight: 600; margin-top: 2.25rem; margin-bottom: .75rem; color: $brand; }
 .post-content h3 { font-size: 1.05rem; margin-top: 1.5rem; }
 
 // ========== Footer ==========
@@ -334,25 +271,13 @@ blockquote {
   flex-wrap: wrap;
   margin-bottom: 8px;
 }
-.site-footer .footer-name {
-  color: $brand;
-  font-weight: 600;
-  font-size: .95rem;
-}
+.site-footer .footer-name { color: $brand; font-weight: 600; font-size: .95rem; }
 .site-footer .footer-links {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 18px;
+  list-style: none; margin: 0; padding: 0;
+  display: flex; gap: 18px;
 }
-.site-footer .footer-links a {
-  color: $text-soft;
-}
-.site-footer .footer-links a:hover {
-  color: $brand;
-  text-decoration: none;
-}
+.site-footer .footer-links a { color: $text-soft; }
+.site-footer .footer-links a:hover { color: $brand; text-decoration: none; }
 .site-footer .footer-copy {
   color: $text-muted;
   font-size: .8rem;
@@ -375,7 +300,7 @@ blockquote {
   .hero .name-en { font-size: 1.1rem; display: inline-block; margin-left: 6px; }
   .post-list li { flex-direction: column; gap: 2px; }
   .post-list time { flex: 0 0 auto; font-size: .78rem; }
-  .site-nav .page-link { margin-left: 14px; }
-  .site-title { max-width: 50%; font-size: .9rem; }
+  .site-nav { gap: 16px; }
+  .site-nav .page-link { font-size: .88rem; }
   .site-footer .footer-inner { flex-direction: column; align-items: flex-start; }
 }
