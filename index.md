@@ -32,10 +32,13 @@ description: >-
 
 <section class="hero">
 <div class="hero-text">
-<h1>陈栋梁 <span class="name-en">Silen Chen</span></h1>
+<h1>Silen Chen</h1>
 <p class="tagline">安全圈一小卒</p>
 </div>
 <img class="avatar" src="https://github.com/SilenceDiors.png" alt="Silen Chen" />
 </section>
 
-<blockquote class="motto">挟飞仙以遨游，抱明月而长终。</blockquote>
+<section class="prose">
+<p>平时做 Web 应用与服务器侧的漏洞挖掘,也读 AI 系统、智能合约方向的安全研究。偶尔写点笔记放在这里,既是给自己留底,也希望对同样在折腾这些东西的人有帮助。</p>
+<p class="motto">挟飞仙以遨游，抱明月而长终。</p>
+</section>
