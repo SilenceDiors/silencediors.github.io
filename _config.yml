@@ -5,9 +5,7 @@ description: >-
   关注应用安全、AI 安全、Web3 安全。2026 年 2 月获 Apple Web Server Security
   Acknowledgements 官方致谢。
 
-author:
-  name: "Silen Chen (陈栋梁)"
-  email: ""
+author: "Silen Chen (陈栋梁)"
 
 url: "https://silencediors.github.io"
 baseurl: ""
@@ -16,6 +14,10 @@ lang: "zh-CN"
 locale: "zh_CN"
 
 theme: minima
+
+# 导航栏只显示这些页面(不包括 index 本身)
+header_pages:
+  - about.md
 
 plugins:
   - jekyll-feed
@@ -33,6 +35,8 @@ social:
 markdown: kramdown
 highlighter: rouge
 permalink: /:year/:month/:day/:title/
+
+show_excerpts: false
 
 exclude:
   - Gemfile

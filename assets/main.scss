@@ -5,21 +5,23 @@
 @charset "utf-8";
 
 // ========== 配色 ==========
-$bg:           #fbfaf7;        // 温暖的米白
-$bg-card:      #ffffff;
-$border:       #e7e5e0;        // 偏暖灰
+$bg:           #f5f1e8;        // 温暖米色(明显非白)
+$bg-card:      #fdfcf8;        // 卡片底色,略浅于 body
+$bg-soft:      #efe9d8;        // 更深的暖色,用于 footer
+$border:       #e0d9c8;        // 偏暖灰
+$border-soft:  rgba(224, 217, 200, .6);
 $text:         #2a2a2a;
-$text-soft:    #6b7280;
-$text-muted:   #9ca3af;
-$brand:        #18181b;        // 深炭灰,比纯黑柔和
-$accent:       #2563eb;        // 蓝-600
+$text-soft:    #6b6258;
+$text-muted:   #9c9286;
+$brand:        #1a1a1a;
+$accent:       #2563eb;
 $accent-soft:  #eef2ff;
-$code-bg:      #f3f3f0;
+$code-bg:      rgba(0,0,0,.04);
 
-// 顶部柔光颜色(很淡的暖色 aurora)
-$glow-1:       rgba(252, 211, 170, .35);  // 暖橙
-$glow-2:       rgba(167, 199, 231, .30);  // 蓝灰
-$glow-3:       rgba(212, 222, 195, .25);  // 浅绿
+// 顶部柔光颜色
+$glow-1:       rgba(255, 220, 180, .55);  // 暖橙
+$glow-2:       rgba(190, 210, 240, .45);  // 蓝灰
+$glow-3:       rgba(225, 235, 200, .35);  // 浅绿
 
 // ========== 字体 ==========
 $font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
@@ -28,7 +30,7 @@ $font-sans: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI",
 $font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
             "Liberation Mono", monospace;
 
-// ========== Reset & 基础 ==========
+// ========== Reset ==========
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 
@@ -38,30 +40,24 @@ body {
   font-size: 16px;
   line-height: 1.78;
   color: $text;
-  background: $bg;
+  background-color: $bg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   position: relative;
   min-height: 100vh;
 }
 
-// 顶部柔光装饰(不浮夸,只是给空白处加点呼吸感)
+// 全页固定柔光,滚动也能看到
 body::before {
   content: "";
   position: fixed;
-  top: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1200px;
-  height: 600px;
+  inset: 0;
   background:
-    radial-gradient(circle at 30% 50%, $glow-1, transparent 60%),
-    radial-gradient(circle at 70% 40%, $glow-2, transparent 55%),
-    radial-gradient(circle at 50% 60%, $glow-3, transparent 60%);
-  filter: blur(60px);
-  z-index: -1;
+    radial-gradient(900px 600px at 15% -5%, $glow-1, transparent 60%),
+    radial-gradient(800px 500px at 95% 10%, $glow-2, transparent 55%),
+    radial-gradient(700px 500px at 50% 110%, $glow-3, transparent 60%);
   pointer-events: none;
-  opacity: .9;
+  z-index: -1;
 }
 
 a {
@@ -126,10 +122,10 @@ blockquote {
 // ========== Header ==========
 .site-header {
   border-top: 0;
-  border-bottom: 1px solid rgba(231, 229, 224, .6);
-  background: rgba(251, 250, 247, .8);
-  backdrop-filter: saturate(150%) blur(10px);
-  -webkit-backdrop-filter: saturate(150%) blur(10px);
+  border-bottom: 1px solid $border-soft;
+  background: rgba(245, 241, 232, .75);
+  backdrop-filter: saturate(160%) blur(12px);
+  -webkit-backdrop-filter: saturate(160%) blur(12px);
   min-height: auto;
   position: sticky;
   top: 0;
@@ -148,10 +144,14 @@ blockquote {
   color: $brand;
   letter-spacing: .005em;
   line-height: 1;
+  max-width: 60%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .site-title:hover { text-decoration: none; opacity: .7; }
 
-.site-nav { float: none; line-height: 1; background: transparent; }
+.site-nav { float: none; line-height: 1; background: transparent; border: 0; }
 .site-nav .page-link {
   color: $text-soft;
   margin-left: 22px;
@@ -198,13 +198,13 @@ blockquote {
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 4px 24px rgba(15, 23, 42, .08), 0 2px 6px rgba(15, 23, 42, .04);
-  background: #fff;
+  border: 3px solid $bg-card;
+  box-shadow: 0 6px 30px rgba(20, 15, 5, .10), 0 2px 6px rgba(20, 15, 5, .05);
+  background: $bg-card;
   object-fit: cover;
 }
 
-// ========== Prose (正文段落) ==========
+// ========== Prose ==========
 .prose {
   font-size: 1rem;
   line-height: 1.85;
@@ -242,11 +242,11 @@ blockquote {
 .prose strong { color: $brand; font-weight: 600; }
 
 .interests { margin-top: 1.5rem; }
+.findings { margin-top: 1.5rem; }
 
-// ========== Posts list ==========
+// ========== Posts ==========
 .post-list-section {
   margin-top: 3.5rem;
-  padding-top: 0;
 }
 .post-list-section > h2 {
   font-size: 1.05rem;
@@ -268,7 +268,7 @@ blockquote {
 }
 .post-list li {
   padding: 12px 0;
-  border-bottom: 1px solid rgba(231, 229, 224, .7);
+  border-bottom: 1px solid $border-soft;
   display: flex;
   align-items: baseline;
   gap: 16px;
@@ -286,16 +286,6 @@ blockquote {
   border: 0;
 }
 .post-list .post-link:hover { color: $accent; text-decoration: none; }
-.rss-line {
-  margin-top: 1.25rem;
-  font-size: .88rem;
-  color: $text-soft;
-}
-.rss-line a {
-  color: $text-soft;
-  border-bottom: 1px dashed $border;
-}
-.rss-line a:hover { color: $accent; border-color: $accent; }
 
 // ========== Page (about) ==========
 .page-title {
@@ -330,21 +320,46 @@ blockquote {
 // ========== Footer ==========
 .site-footer {
   border-top: 1px solid $border;
-  padding: 28px 0 40px;
+  background: $bg-soft;
+  padding: 28px 0 36px;
   margin-top: 80px;
   color: $text-soft;
-  font-size: .85rem;
-  background: rgba(255,255,255,.4);
+  font-size: .88rem;
 }
-.site-footer .wrapper { display: flex; gap: 20px; flex-wrap: wrap; }
-.site-footer h2 { font-size: .88rem; color: $brand; margin: 0 0 .5rem; font-weight: 600; }
-.site-footer .footer-col { flex: 1 1 200px; }
-.site-footer .footer-col-1, .site-footer .footer-col-2, .site-footer .footer-col-3 {
-  flex: 1 1 200px;
+.site-footer .footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
 }
-.site-footer ul { list-style: none; padding: 0; margin: 0; }
-.site-footer .contact-list li,
-.site-footer .social-media-list li { padding: 2px 0; }
+.site-footer .footer-name {
+  color: $brand;
+  font-weight: 600;
+  font-size: .95rem;
+}
+.site-footer .footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 18px;
+}
+.site-footer .footer-links a {
+  color: $text-soft;
+}
+.site-footer .footer-links a:hover {
+  color: $brand;
+  text-decoration: none;
+}
+.site-footer .footer-copy {
+  color: $text-muted;
+  font-size: .8rem;
+  padding-top: 8px;
+  border-top: 1px solid $border-soft;
+  margin-top: 8px;
+}
 
 // ========== 响应式 ==========
 @media (max-width: 640px) {
@@ -361,5 +376,6 @@ blockquote {
   .post-list li { flex-direction: column; gap: 2px; }
   .post-list time { flex: 0 0 auto; font-size: .78rem; }
   .site-nav .page-link { margin-left: 14px; }
-  body::before { opacity: .6; }
+  .site-title { max-width: 50%; font-size: .9rem; }
+  .site-footer .footer-inner { flex-direction: column; align-items: flex-start; }
 }
