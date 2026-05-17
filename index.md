@@ -3,7 +3,8 @@ layout: home
 title: "陈栋梁 (Silen Chen) — 网络安全研究"
 description: >-
   陈栋梁 / Silen Chen / SilenceDiors 的个人博客。
-  应用安全研究方向,2026 年 2 月获 Apple Web Server Security Acknowledgements 致谢。
+  应用安全研究方向,关注 Web 安全、AI 安全、Web3 安全;
+  2026 年 2 月获 Apple Web Server Security Acknowledgements 致谢。
 ---
 
 <script type="application/ld+json">
@@ -22,49 +23,56 @@ description: >-
   ],
   "knowsAbout": [
     "网络安全", "应用安全", "Web 安全", "漏洞挖掘",
-    "AI 安全", "LLM 安全", "MCP 安全", "Web3 安全", "智能合约安全"
+    "AI 安全", "AI 应用开发平台安全", "MCP 安全",
+    "Web3 安全", "智能合约安全", "DeFi 安全"
   ],
   "award": ["Apple Web Server Security Acknowledgements, February 2026"]
 }
 </script>
 
-<div class="profile-hero">
-  <h1>陈栋梁 <span class="name-en">Silen Chen</span></h1>
-  <p class="tagline">网络安全研究方向 · 应用安全 / AI 安全 / Web3 安全</p>
-  <p class="meta">
-    <a href="https://github.com/SilenceDiors" rel="me">GitHub</a>
-    <span class="sep">·</span>
-    <a href="/about/">关于</a>
-    <span class="sep">·</span>
-    <a href="/feed.xml">RSS</a>
-  </p>
+<section class="hero">
+  <div class="hero-text">
+    <h1>陈栋梁 <span class="name-en">Silen Chen</span></h1>
+    <p class="tagline">网络安全研究方向 · 关注 Web 安全、AI 安全、Web3 安全</p>
+  </div>
+  <img class="avatar" src="https://github.com/SilenceDiors.png" alt="Silen Chen" />
+</section>
+
+<div class="prose">
+
+平日里挖一些 Web 应用与服务器侧的漏洞,顺手也读读 AI 系统与区块链方向的安全研究。
+2026 年 2 月,因报告 Apple 网页服务器的一处授权绕过问题获
+[Apple 官方致谢](https://support.apple.com/en-us/102774)
+([中文版](https://support.apple.com/zh-cn/102774),February 2026 段落署名 “栋梁 陈”)。
+
+GitHub 上叫 [@SilenceDiors](https://github.com/SilenceDiors),平时把读到、做过的东西写在这里。
+
 </div>
 
-## 致谢与披露记录
+<section class="prose interests">
 
-<div class="ack-list">
-  <div class="ack-item">
-    <div class="ack-vendor">Apple</div>
-    <div class="ack-body">
-      <strong>Web Server Security Acknowledgements — 2026 年 2 月</strong><br/>
-      因负责任地披露 Apple 网页服务器的安全问题,获 Apple 官方致谢。
-      <a href="https://support.apple.com/en-us/102774">官方致谢名单</a>
-      (<a href="https://support.apple.com/zh-cn/102774">中文版</a>),
-      在 February 2026 段落以 “栋梁 陈” 署名。
-    </div>
-  </div>
-  <div class="ack-item">
-    <div class="ack-vendor">EMQX</div>
-    <div class="ack-body">
-      <strong>Authentication Bypass — 2025 年 5 月</strong><br/>
-      鉴权接口限制绕过问题,通过邮件协助官方安全团队修复。
-      Issue:<a href="https://github.com/emqx/emqx/issues/15199">emqx/emqx#15199</a>。
-    </div>
-  </div>
-</div>
+### 在做什么
 
-## 研究方向
+- **应用安全 / Web 安全** — 服务器端漏洞挖掘、鉴权机制、业务逻辑
+- **AI 安全** — AI 应用开发平台、Agent、MCP 协议的鉴权与威胁建模
+- **Web3 安全** — 智能合约审计、DeFi 协议风险、交易系统
 
-- **应用安全 / Web 安全** — 服务器端漏洞挖掘、鉴权机制研究、业务逻辑漏洞
-- **AI 安全** — LLM、Agent、MCP 协议鉴权风险与威胁建模
-- **Web3 安全** — 多链代币安全分析、智能合约审计
+</section>
+
+<section class="prose findings">
+
+### Findings
+
+零散记录一些过往做过 / 找到过的事:
+
+- **Apple 网页服务器** — 一处授权绕过问题,获
+  [Apple Web Server Security Acknowledgements](https://support.apple.com/en-us/102774)
+  致谢(2026 年 2 月,中文版署名 “栋梁 陈”)
+- **在某云桌面 / 云浏览器产品中发现的漏洞** — 已通过厂商安全团队修复
+- **AI 应用开发平台** — 高危 RCE
+- **代币安全审计** — 受限重入(read-only reentrancy)漏洞
+- **某交易系统** — 永续合约标记价格操纵问题
+- **MQTT 协议中间件** — 鉴权接口限制绕过漏洞,见
+  [Issue #15199](https://github.com/emqx/emqx/issues/15199)
+
+</section>
