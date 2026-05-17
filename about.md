@@ -43,9 +43,9 @@ description: "关于陈栋梁(Silen Chen / SilenceDiors),网络安全研究方�
 <h3>Findings</h3>
 <ul>
 <li><strong>Apple 安全致谢与赏金</strong> — <a href="https://support.apple.com/en-us/102774">Apple Web Server Security Acknowledgements</a></li>
-<li><strong>某国内云桌面 / 云浏览器</strong> — CVE Thanks</li>
-<li><strong>某开源 AI 应用开发平台</strong> — CVE Thanks</li>
-<li><strong>代币安全审计、交易系统、MQTT 协议中间件 等</strong> — CVE Thanks</li>
+<li><strong>某国内云桌面 / 云浏览器</strong></li>
+<li><strong>某开源 AI 应用开发平台</strong></li>
+<li><strong>代币安全审计、交易系统、MQTT 协议中间件 等</strong></li>
 </ul>
 
 </section>
