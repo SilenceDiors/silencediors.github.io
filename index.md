@@ -30,7 +30,7 @@ description: >-
 }
 </script>
 
-<section class="hero">
+<section class="hero" markdown="0">
   <div class="hero-text">
     <h1>陈栋梁 <span class="name-en">Silen Chen</span></h1>
     <p class="tagline">网络安全研究方向 · 关注 Web 安全、AI 安全、Web3 安全</p>
@@ -38,18 +38,16 @@ description: >-
   <img class="avatar" src="https://github.com/SilenceDiors.png" alt="Silen Chen" />
 </section>
 
-<div class="prose">
+<div class="prose" markdown="1">
 
 平日里挖一些 Web 应用与服务器侧的漏洞,顺手也读读 AI 系统与区块链方向的安全研究。
-2026 年 2 月,因报告 Apple 网页服务器的一处授权绕过问题获
-[Apple 官方致谢](https://support.apple.com/en-us/102774)
-([中文版](https://support.apple.com/zh-cn/102774),February 2026 段落署名 “栋梁 陈”)。
+2026 年 2 月,因报告 Apple 网页服务器的一处授权绕过问题获 [Apple 官方致谢](https://support.apple.com/en-us/102774)([中文版](https://support.apple.com/zh-cn/102774),February 2026 段落署名 "栋梁 陈")。
 
 GitHub 上叫 [@SilenceDiors](https://github.com/SilenceDiors),平时把读到、做过的东西写在这里。
 
 </div>
 
-<section class="prose interests">
+<section class="prose interests" markdown="1">
 
 ### 在做什么
 
@@ -59,20 +57,17 @@ GitHub 上叫 [@SilenceDiors](https://github.com/SilenceDiors),平时把读到�
 
 </section>
 
-<section class="prose findings">
+<section class="prose findings" markdown="1">
 
 ### Findings
 
 零散记录一些过往做过 / 找到过的事:
 
-- **Apple 网页服务器** — 一处授权绕过问题,获
-  [Apple Web Server Security Acknowledgements](https://support.apple.com/en-us/102774)
-  致谢(2026 年 2 月,中文版署名 “栋梁 陈”)
+- **Apple 网页服务器** — 一处授权绕过问题,获 [Apple Web Server Security Acknowledgements](https://support.apple.com/en-us/102774) 致谢(2026 年 2 月,中文版署名 "栋梁 陈")
 - **在某云桌面 / 云浏览器产品中发现的漏洞** — 已通过厂商安全团队修复
 - **AI 应用开发平台** — 高危 RCE
 - **代币安全审计** — 受限重入(read-only reentrancy)漏洞
 - **某交易系统** — 永续合约标记价格操纵问题
-- **MQTT 协议中间件** — 鉴权接口限制绕过漏洞,见
-  [Issue #15199](https://github.com/emqx/emqx/issues/15199)
+- **MQTT 协议中间件** — 鉴权接口限制绕过漏洞,见 [Issue #15199](https://github.com/emqx/emqx/issues/15199)
 
 </section>

@@ -30,7 +30,7 @@ description: "关于陈栋梁(Silen Chen / SilenceDiors),网络安全研究方�
 }
 </script>
 
-<div class="prose">
+<div class="prose" markdown="1">
 
 陈栋梁(Silen Chen),网络安全研究方向。GitHub:[@SilenceDiors](https://github.com/SilenceDiors)。
 
@@ -45,15 +45,12 @@ description: "关于陈栋梁(Silen Chen / SilenceDiors),网络安全研究方�
 
 ### Findings
 
-- **Apple 网页服务器** — 一处授权绕过问题,2026 年 2 月获
-  [Apple Web Server Security Acknowledgements](https://support.apple.com/en-us/102774)
-  ([中文](https://support.apple.com/zh-cn/102774))致谢,署名 “栋梁 陈”
+- **Apple 网页服务器** — 一处授权绕过问题,2026 年 2 月获 [Apple Web Server Security Acknowledgements](https://support.apple.com/en-us/102774)([中文](https://support.apple.com/zh-cn/102774))致谢,署名 "栋梁 陈"
 - **在某云桌面 / 云浏览器产品中发现的漏洞** — 已通过厂商安全团队修复
 - **AI 应用开发平台** — 高危 RCE
 - **代币安全审计** — 受限重入(read-only reentrancy)漏洞
 - **某交易系统** — 永续合约标记价格操纵问题
-- **MQTT 协议中间件** — 鉴权接口限制绕过漏洞,
-  [Issue #15199](https://github.com/emqx/emqx/issues/15199)(2025 年 5 月)
+- **MQTT 协议中间件** — 鉴权接口限制绕过漏洞,[Issue #15199](https://github.com/emqx/emqx/issues/15199)(2025 年 5 月)
 
 ### 联系
 
