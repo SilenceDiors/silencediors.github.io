@@ -80,6 +80,31 @@ table th { font-weight: 600; color: $brand; background: rgba(0,0,0,.02); }
 
 blockquote { margin: 1.2rem 0; padding: .25rem 0 .25rem 1rem; color: $text-soft; border-left: 3px solid $border; }
 
+// 首页 motto:无边框、居中、带衬线、像题词
+blockquote.motto {
+  margin: 1.5rem 0 3.5rem;
+  padding: 0;
+  border: 0;
+  text-align: center;
+  font-family: "Songti SC", "STSong", "Source Han Serif SC", "Noto Serif SC", "PingFang SC", serif;
+  font-size: 1.15rem;
+  font-style: normal;
+  color: $text-soft;
+  letter-spacing: .12em;
+  line-height: 1.8;
+  position: relative;
+}
+blockquote.motto::before,
+blockquote.motto::after {
+  content: "";
+  display: inline-block;
+  width: 32px;
+  height: 1px;
+  background: $border;
+  vertical-align: middle;
+  margin: 0 14px;
+}
+
 // ========== 布局 ==========
 .wrapper { max-width: 720px; margin: 0 auto; padding: 0 24px; }
 
