@@ -268,36 +268,19 @@ blockquote { margin: 1.2rem 0; padding: .25rem 0 .25rem 1rem; color: $text-soft;
 .post-content h2 { font-size: 1.2rem; font-weight: 600; margin-top: 2.25rem; margin-bottom: .75rem; color: $brand; }
 .post-content h3 { font-size: 1.05rem; margin-top: 1.5rem; }
 
-// ========== Footer ==========
+// ========== Footer (极简,只剩版权信息) ==========
 .site-footer {
   border-top: 1px solid $border;
   background: $bg-soft;
-  padding: 28px 0 36px;
+  padding: 24px 0 32px;
   margin-top: 80px;
-  color: $text-soft;
-  font-size: .88rem;
+  color: $text-muted;
+  font-size: .82rem;
+  text-align: left;
 }
-.site-footer .footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  margin-bottom: 8px;
-}
-.site-footer .footer-name { color: $brand; font-weight: 600; font-size: .95rem; }
-.site-footer .footer-links {
-  list-style: none; margin: 0; padding: 0;
-  display: flex; gap: 18px;
-}
-.site-footer .footer-links a { color: $text-soft; }
-.site-footer .footer-links a:hover { color: $brand; text-decoration: none; }
 .site-footer .footer-copy {
   color: $text-muted;
-  font-size: .8rem;
-  padding-top: 8px;
-  border-top: 1px solid $border-soft;
-  margin-top: 8px;
+  letter-spacing: .02em;
 }
 
 // ========== 响应式 ==========
