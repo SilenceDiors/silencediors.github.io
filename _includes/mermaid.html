@@ -1,10 +1,44 @@
-<!-- Mermaid.js support -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.min.js"></script>
 <script>
-  mermaid.initialize({ 
-    startOnLoad: true,
-    theme: 'default',
-    securityLevel: 'loose'
-  });
-</script>
+  (function () {
+    function init() {
+      // 把 ```mermaid 代码块(kramdown 渲染成 <pre><code class="language-mermaid">) 转成 <div class="mermaid">
+      document.querySelectorAll('pre > code.language-mermaid, code.language-mermaid').forEach(function (code) {
+        var pre = code.parentNode;
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = code.textContent;
+        var target = (pre && pre.tagName === 'PRE') ? pre : code;
+        target.parentNode.replaceChild(div, target);
+      });
 
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        securityLevel: 'loose',
+        flowchart: { useMaxWidth: true, htmlLabels: true },
+        sequence: { useMaxWidth: true, wrap: true }
+      });
+
+      // mermaid 10.x 推荐显式 run 一次,确保即便 startOnLoad 没触发也能渲染
+      if (typeof mermaid.run === 'function') {
+        try { mermaid.run({ querySelector: '.mermaid' }); } catch (e) { console.warn('mermaid.run failed:', e); }
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init);
+    } else {
+      init();
+    }
+  })();
+</script>
+<style>
+  .mermaid {
+    background: transparent;
+    text-align: center;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+  .mermaid svg { max-width: 100%; height: auto; }
+</style>

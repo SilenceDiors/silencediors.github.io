@@ -51,27 +51,18 @@ description: "关于陈栋梁(Silen Chen / SilenceDiors),网络安全研究方�
   <h3>Findings</h3>
   <ul>
     <li>
-      <strong>Apple 网页服务器</strong> — 一处授权绕过问题,2026 年 2 月获
+      <strong>Apple 安全致谢与赏金</strong> —
       <a href="https://support.apple.com/en-us/102774">Apple Web Server Security Acknowledgements</a>
-      (<a href="https://support.apple.com/zh-cn/102774">中文</a>)致谢,署名 “栋梁 陈”
+      (<a href="https://support.apple.com/zh-cn/102774">中文版</a>)
     </li>
-    <li><strong>在某云桌面 / 云浏览器产品中发现的漏洞</strong> — 已通过厂商安全团队修复</li>
-    <li><strong>AI 应用开发平台</strong> — 高危 RCE</li>
-    <li><strong>代币安全审计</strong> — 受限重入(read-only reentrancy)漏洞</li>
-    <li><strong>交易所漏洞</strong></li>
-    <li><strong>钱包漏洞</strong></li>
+    <li><strong>某国内云桌面 / 云浏览器</strong> — 漏洞,已通过厂商安全团队修复</li>
+    <li><strong>某开源 AI 应用开发平台</strong> — 高危 RCE</li>
     <li>
-      <strong>MQTT 协议中间件</strong> — 鉴权接口限制绕过漏洞,
-      <a href="https://github.com/emqx/emqx/issues/15199">Issue #15199</a>(2025 年 5 月)
+      <strong>代币安全审计、交易系统、MQTT 协议中间件 等</strong> —
+      CVE Thanks 与赏金(含
+      <a href="https://github.com/emqx/emqx/issues/15199">emqx/emqx#15199</a>
+      等公开记录)
     </li>
   </ul>
 
-  <h3>联系</h3>
-  <ul>
-    <li>博客:<a href="https://silencediors.github.io">silencediors.github.io</a></li>
-    <li>GitHub:<a href="https://github.com/SilenceDiors">github.com/SilenceDiors</a></li>
-    <li>掘金:<em>(待补充)</em></li>
-  </ul>
-
-  <p>合作、求职、漏洞披露相关事项,可通过 GitHub 联系。</p>
 </section>

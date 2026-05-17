@@ -27,7 +27,7 @@ categories: security
 
 上面的鉴权流程如果理完了，我们把资源服务器换成MCP服务器（MCP是后来者，鉴权方式不可能因为它去适配，只能它来适配之前的）再来一遍，这里我们把MCP服务器当成资源服务器，其实也没啥本质区别。
 
-<div class="mermaid">
+```mermaid
 sequenceDiagram
     participant Client as MCP客户端
     participant MCP as MCP服务器
@@ -52,7 +52,7 @@ sequenceDiagram
     MCP->>AS: 16. Token验证（Introspection）
     AS->>MCP: 17. 验证结果
     MCP->>Client: 18. 返回资源
-</div>
+```
 
 **步骤一：握手**
 
@@ -70,11 +70,8 @@ WWW-Authenticate: Bearer realm="mcp",
 
 ```json
 {
-   //MCP服务器
   "resource": "https://MCP.server.com/mcp",
-  //认证服务器
   "authorization_servers": ["https://AUTH.server.com"],
-  //支持的权限范围
   "scopes_supported": ["mcp:tools", "mcp:resources"]
 }
 ```
@@ -85,13 +82,9 @@ WWW-Authenticate: Bearer realm="mcp",
 
 ```json
 {
-  //授权服务器主域名
   "issuer": "https://auth.server.com",
-  //获取授权码
   "authorization_endpoint": "https://auth.server.com/authorize",
-  //获取令牌
   "token_endpoint": "https://auth.server.com/token",
-  //注册
   "registration_endpoint": "https://auth.server.com/register"
 }
 ```
@@ -171,7 +164,6 @@ Content-Length: 234
 ```
 GET /mcp HTTP/1.1
 Host: MCP.server.com
-//第五步从授权服务器拿的认证信息
 Authorization: Bearer mcp_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7
 ```
 
@@ -215,14 +207,14 @@ token=mcp_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z7
 
 6、令牌自省（Token Introspection）：符合Oauth规范的一种形式，mcp server作为中间人（可以带着mcp client的令牌去跟授权服务器判断令牌是否有效的权限）去跟授权服务器注册客户端。
 
-<div class="mermaid">
+```mermaid
 graph TB
-    subgraph "MCP客户端认证流程"
-        A[MCP Client<br/>客户端] -->|1. 请求资源| B[MCP Server<br/>资源服务器]
-        B -->|2. 401 Unauthorized<br/>返回PRM端点| A
+    subgraph MCP客户端认证流程
+        A[MCP Client 客户端] -->|1. 请求资源| B[MCP Server 资源服务器]
+        B -->|2. 401 Unauthorized 返回PRM端点| A
         A -->|3. 获取PRM元数据| B
         B -->|4. 返回授权服务器地址| A
-        A -->|5. 获取授权服务器元数据| C[Authorization Server<br/>授权服务器]
+        A -->|5. 获取授权服务器元数据| C[Authorization Server 授权服务器]
         C -->|6. 返回端点信息| A
         A -->|7. 动态客户端注册| C
         C -->|8. 返回client_id| A
@@ -235,24 +227,24 @@ graph TB
         C -->|15. 验证结果| B
         B -->|16. 返回资源| A
     end
-</div>
+```
 
 （安全威胁5：mcp server的client secret硬编码在mcp serverSDK的代码中。）
 
 再附上原汁原味的官方SDK代码里画的图，是让在授权的时候接入SSO的
 
-<div class="mermaid">
+```mermaid
 graph LR
-    A[Client<br/>客户端] -->|1. 授权请求| B[MCP Server<br/>MCP服务器]
-    B -->|2. 重定向到SSO| C[3rd Party OAuth<br/>第三方OAuth服务器]
-    C -->|3. 用户授权| D[SSO Provider<br/>SSO提供商]
+    A[Client 客户端] -->|1. 授权请求| B[MCP Server MCP服务器]
+    B -->|2. 重定向到SSO| C[3rd Party OAuth 第三方OAuth服务器]
+    C -->|3. 用户授权| D[SSO Provider SSO提供商]
     D -->|4. 授权完成| C
     C -->|5. 重定向回MCP| B
-    B -->|6. 生成授权码| E[redirect_uri<br/>客户端回调地址]
+    B -->|6. 生成授权码| E[redirect_uri 客户端回调地址]
     E -->|7. 授权码| A
     A -->|8. 交换Token| C
     C -->|9. Access Token| A
-</div>
+```
 
 ### 1.3.4 真实应用场景风险
 
@@ -270,37 +262,36 @@ graph LR
 
 （安全威胁6：混淆助手攻击）
 
-<div class="mermaid">
+```mermaid
 sequenceDiagram
-    participant User as 用户<br/>已SSO登录
+    participant User as 用户已SSO登录
     participant Attacker as 攻击者
-    participant MCP as MCP代理服务器<br/>静态client_id
+    participant MCP as MCP代理服务器
     participant AS as 第三方授权服务器
     participant API as 第三方API
 
     rect rgb(200, 230, 200)
-        Note over User,API: 正常流程
-        User->>MCP: 正常访问资源
-        MCP->>AS: Token Introspection验证
-        AS-->>MCP: 验证通过
-        MCP->>API: 访问第三方API
-        Note over User,AS: 设置consent cookie
+    Note over User,API: 正常流程
+    User->>MCP: 正常访问资源
+    MCP->>AS: Token Introspection验证
+    AS-->>MCP: 验证通过
+    MCP->>API: 访问第三方API
+    Note over User,AS: 设置consent cookie
     end
-    
+
     rect rgb(255, 200, 200)
-        Note over Attacker,API: 攻击流程（1-click攻击）
-        Attacker->>User: 发送恶意授权链接
-        Note right of Attacker: client_id=mcp-proxy-static<br/>redirect_uri=https://attacker.com/callback
-        User->>AS: 点击链接（1-click）
-        Note over AS: 检测到consent cookie<br/>跳过同意屏幕
-        AS->>AS: 自动授权（无用户确认）
-        AS->>Attacker: 授权码重定向到攻击者服务器
-        Attacker->>AS: 用授权码换取Access Token
-        AS-->>Attacker: 返回Access Token
-        Attacker->>API: 以用户身份访问第三方API
-        Note over Attacker,API: 攻击成功！
+    Note over Attacker,API: 攻击流程 1-click
+    Attacker->>User: 发送恶意授权链接
+    User->>AS: 点击链接 1-click
+    Note over AS: 检测到consent cookie 跳过同意屏幕
+    AS->>AS: 自动授权 无用户确认
+    AS->>Attacker: 授权码重定向到攻击者服务器
+    Attacker->>AS: 用授权码换取Access Token
+    AS-->>Attacker: 返回Access Token
+    Attacker->>API: 以用户身份访问第三方API
+    Note over Attacker,API: 攻击成功
     end
-</div>
+```
 
 a.用户SSO接入后或者说会话保持着，通常通过 MCP 代理服务器进行身份验证（令牌内省），以访问第三方 API。
 
@@ -392,50 +383,46 @@ MCP client动态注册的地址没有配置好，导致任意地址的动态注�
 
 动态注册mcp proxy server的clientid，并在认证服务器中实现动态client_id与redirect_uri的绑定，如果有变化需要提醒安全风险并获取同意。
 
-<div class="mermaid">
+```mermaid
 graph TB
-    subgraph "安全配置"
-        A[动态注册MCP Proxy<br/>client_id] --> B[client_id与<br/>redirect_uri绑定]
+    subgraph 安全配置
+        A[动态注册MCP Proxy client_id] --> B[client_id与redirect_uri绑定]
         B --> C{redirect_uri变化?}
         C -->|是| D[显示安全警告]
         C -->|否| E[正常授权]
         D --> F[要求用户明确同意]
         F --> G[用户确认后授权]
     end
-    
-    style D fill:#fff3cd
-    style F fill:#d1ecf1
-    style G fill:#d4edda
-</div>
+```
 
 **解决方案2:（攻击者拿到授权码的情况下也拿不到accesstoken）**
 
 使用OAuth-PKCE拓展。
 
-<div class="mermaid">
+```mermaid
 sequenceDiagram
     participant Client as 客户端
     participant AS as 授权服务器
-    
+
     Note over Client: 生成PKCE参数
-    Client->>Client: 生成code_verifier<br/>（随机字符串）
-    Client->>Client: 计算code_challenge<br/>SHA256(code_verifier)
-    
-    Client->>AS: 授权请求<br/>带code_challenge
+    Client->>Client: 生成code_verifier 随机字符串
+    Client->>Client: 计算code_challenge SHA256
+
+    Client->>AS: 授权请求 带code_challenge
     AS->>Client: 返回授权码
-    
+
     Note over Client: 必须提供code_verifier
-    Client->>AS: Token请求<br/>授权码+code_verifier
-    AS->>AS: 验证code_verifier<br/>SHA256(code_verifier)==code_challenge?
-    
+    Client->>AS: Token请求 授权码加code_verifier
+    AS->>AS: 验证code_verifier
+
     alt 验证通过
         AS->>Client: 返回Access Token
     else 验证失败
         AS->>Client: 拒绝请求
     end
-    
-    Note over Client,AS: 即使攻击者获得授权码<br/>没有code_verifier也无法换取Token
-</div>
+
+    Note over Client,AS: 即使攻击者获得授权码 没有code_verifier也无法换取Token
+```
 
 ### 3.2.7 安全威胁7:会话安全漏洞
 

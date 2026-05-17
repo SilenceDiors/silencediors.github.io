@@ -64,28 +64,17 @@ description: >-
   <p>零散记录一些过往做过 / 找到过的事:</p>
   <ul>
     <li>
-      <strong>Apple 网页服务器</strong> — 一处授权绕过问题,获
+      <strong>Apple 安全致谢与赏金</strong> —
       <a href="https://support.apple.com/en-us/102774">Apple Web Server Security Acknowledgements</a>
-      致谢(2026 年 2 月,中文版署名 “栋梁 陈”)
     </li>
     <li>
-      <strong>在某云桌面 / 云浏览器产品中发现的漏洞</strong> — 已通过厂商安全团队修复
+      <strong>某国内云桌面 / 云浏览器</strong> — 漏洞,已通过厂商安全团队修复
     </li>
     <li>
-      <strong>AI 应用开发平台</strong> — 高危 RCE
+      <strong>某开源 AI 应用开发平台</strong> — 高危 RCE
     </li>
     <li>
-      <strong>代币安全审计</strong> — 受限重入(read-only reentrancy)漏洞
-    </li>
-    <li>
-      <strong>交易所漏洞</strong>
-    </li>
-    <li>
-      <strong>钱包漏洞</strong>
-    </li>
-    <li>
-      <strong>MQTT 协议中间件</strong> — 鉴权接口限制绕过漏洞,见
-      <a href="https://github.com/emqx/emqx/issues/15199">Issue #15199</a>
+      <strong>代币安全审计、交易系统、MQTT 协议中间件 等</strong> — CVE Thanks 与赏金
     </li>
   </ul>
 </section>
