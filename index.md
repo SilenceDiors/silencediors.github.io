@@ -21,41 +21,50 @@ description: >-
     "https://support.apple.com/en-us/102774"
   ],
   "knowsAbout": [
-    "网络安全",
-    "应用安全",
-    "Web 安全",
-    "漏洞挖掘",
-    "AI 安全",
-    "LLM 安全",
-    "MCP 安全",
-    "Web3 安全",
-    "智能合约安全"
+    "网络安全", "应用安全", "Web 安全", "漏洞挖掘",
+    "AI 安全", "LLM 安全", "MCP 安全", "Web3 安全", "智能合约安全"
   ],
-  "award": [
-    "Apple Web Server Security Acknowledgements, February 2026"
-  ]
+  "award": ["Apple Web Server Security Acknowledgements, February 2026"]
 }
 </script>
 
-# 陈栋梁 (Silen Chen)
-
-网络安全研究方向,关注应用安全、AI 安全、Web3 安全。GitHub:[@SilenceDiors](https://github.com/SilenceDiors)。
+<div class="profile-hero">
+  <h1>陈栋梁 <span class="name-en">Silen Chen</span></h1>
+  <p class="tagline">网络安全研究方向 · 应用安全 / AI 安全 / Web3 安全</p>
+  <p class="meta">
+    <a href="https://github.com/SilenceDiors" rel="me">GitHub</a>
+    <span class="sep">·</span>
+    <a href="/about/">关于</a>
+    <span class="sep">·</span>
+    <a href="/feed.xml">RSS</a>
+  </p>
+</div>
 
 ## 致谢与披露记录
 
-- **Apple Web Server Security Acknowledgements — 2026 年 2 月**
-  因负责任地披露 Apple 网页服务器的安全问题,获 Apple 官方致谢。
-  见 [Apple 官方致谢名单](https://support.apple.com/en-us/102774)([中文版](https://support.apple.com/zh-cn/102774)),
-  在 February 2026 段落以 "栋梁 陈" 署名。
-
-- **EMQX Authentication Bypass — 2025 年 5 月**
-  鉴权接口限制绕过问题,通过邮件协助官方安全团队修复。
-  Issue:[emqx/emqx#15199](https://github.com/emqx/emqx/issues/15199)。
+<div class="ack-list">
+  <div class="ack-item">
+    <div class="ack-vendor">Apple</div>
+    <div class="ack-body">
+      <strong>Web Server Security Acknowledgements — 2026 年 2 月</strong><br/>
+      因负责任地披露 Apple 网页服务器的安全问题,获 Apple 官方致谢。
+      <a href="https://support.apple.com/en-us/102774">官方致谢名单</a>
+      (<a href="https://support.apple.com/zh-cn/102774">中文版</a>),
+      在 February 2026 段落以 “栋梁 陈” 署名。
+    </div>
+  </div>
+  <div class="ack-item">
+    <div class="ack-vendor">EMQX</div>
+    <div class="ack-body">
+      <strong>Authentication Bypass — 2025 年 5 月</strong><br/>
+      鉴权接口限制绕过问题,通过邮件协助官方安全团队修复。
+      Issue:<a href="https://github.com/emqx/emqx/issues/15199">emqx/emqx#15199</a>。
+    </div>
+  </div>
+</div>
 
 ## 研究方向
 
-- 应用安全 / Web 安全:服务器端漏洞挖掘、鉴权机制研究、业务逻辑漏洞
-- AI 安全:LLM、Agent、MCP 协议鉴权风险与威胁建模
-- Web3 安全:多链代币安全分析、智能合约审计
-
-## 文章
+- **应用安全 / Web 安全** — 服务器端漏洞挖掘、鉴权机制研究、业务逻辑漏洞
+- **AI 安全** — LLM、Agent、MCP 协议鉴权风险与威胁建模
+- **Web3 安全** — 多链代币安全分析、智能合约审计

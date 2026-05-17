@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<div class="home">
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+  <section class="post-list-section">
+    <h2>近期文章</h2>
+    <ul class="post-list">
+      {%- for post in site.posts -%}
+      <li>
+        <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time>
+        <a class="post-link" href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+      </li>
+      {%- endfor -%}
+    </ul>
+    <p class="rss-line">
+      <a href="{{ "/feed.xml" | relative_url }}">订阅 RSS</a>
+    </p>
+  </section>
+  {%- endif -%}
+</div>
